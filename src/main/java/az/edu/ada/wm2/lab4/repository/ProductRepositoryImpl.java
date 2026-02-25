@@ -33,7 +33,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public boolean existById(UUID id) {
+    public boolean existsById(UUID id) {
         return storage.containsKey(id);
     }
 }

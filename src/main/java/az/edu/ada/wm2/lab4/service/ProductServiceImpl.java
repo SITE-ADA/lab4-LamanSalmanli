@@ -35,15 +35,15 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll();
     }
 
-    public Product updateProduct(Product product) {
-        if (!productRepository.existById(product.getId())) {
+    public Product updateProduct(UUID id, Product product) {
+        if (!productRepository.existsById(product.getId())) {
             throw new RuntimeException("Product not found with id: " + product.getId());
         }
         return productRepository.save(product);
     }
 
     public void deleteProduct(UUID id) {
-        if (!productRepository.existById(id)) {
+        if (!productRepository.existsById(id)) {
             throw new RuntimeException("Product not found with id: " + id);
         }
         productRepository.deleteById(id);

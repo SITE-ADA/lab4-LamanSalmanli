@@ -44,7 +44,7 @@ public class ProductController {
                                                  @RequestBody Product product) {
         try {
             product.setId(id);
-            return new ResponseEntity<>(productService.updateProduct(product), HttpStatus.OK);
+            return new ResponseEntity<>(productService.updateProduct(id, product), HttpStatus.OK);
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
