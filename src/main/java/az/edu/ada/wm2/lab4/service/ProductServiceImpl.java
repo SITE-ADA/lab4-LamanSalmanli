@@ -26,18 +26,18 @@ public class ProductServiceImpl implements ProductService {
         return  productRepository.save(product);
     }
 
-    public Product getProductByID(UUID id) {
+    public Product getProductById(UUID id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id ));
     }
 
-    public List<Product> getAllProduct() {
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
     public Product updateProduct(Product product) {
         if (!productRepository.existById(product.getId())) {
-            throw new RuntimeException("Product not found with id: " + id);
+            throw new RuntimeException("Product not found with id: " + product.getId());
         }
         return productRepository.save(product);
     }
