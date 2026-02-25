@@ -3,6 +3,8 @@ package az.edu.ada.wm2.lab4.service;
 import az.edu.ada.wm2.lab4.model.Product;
 import az.edu.ada.wm2.lab4.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
     public Product getProductByID(UUID id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new RunTimeException("Product not found with id: " + id ));
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id ));
     }
 
     public List<Product> getAllProduct() {
@@ -35,14 +37,14 @@ public class ProductServiceImpl implements ProductService {
 
     public Product updateProduct(Product product) {
         if (!productRepository.existById(product.getId())) {
-            throw RunTimeException("Product not found with id: " + id);
+            throw new RuntimeException("Product not found with id: " + id);
         }
         return productRepository.save(product);
     }
 
     public void deleteProduct(UUID id) {
         if (!productRepository.existById(id)) {
-            throw RunTimeException("Product not found with id: " + id);
+            throw new RuntimeException("Product not found with id: " + id);
         }
         productRepository.deleteById(id);
     }

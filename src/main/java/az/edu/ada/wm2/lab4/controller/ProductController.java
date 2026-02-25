@@ -1,5 +1,15 @@
+package az.edu.ada.wm2.lab4.controller;
+
+
+import az.edu.ada.wm2.lab4.model.Product;
+import az.edu.ada.wm2.lab4.service.ProductService;
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.UUID;
+
 @RestController
-@RequestMapping("/api/products");
+@RequestMapping("/api/products")
 public class ProductController {
 
     private final ProductService productService;
